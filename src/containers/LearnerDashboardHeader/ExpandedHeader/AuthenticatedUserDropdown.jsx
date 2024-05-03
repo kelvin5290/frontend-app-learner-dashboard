@@ -52,17 +52,17 @@ export const AuthenticatedUserDropdown = () => {
               </Badge>
             </Dropdown.Item>
           )}
-          <Dropdown.Item href={`${getConfig().ACCOUNT_PROFILE_URL}/u/${authenticatedUser.username}`}>
+{/*           <Dropdown.Item href={`${getConfig().ACCOUNT_PROFILE_URL}/u/${authenticatedUser.username}`}>
             {formatMessage(messages.profile)}
-          </Dropdown.Item>
+          </Dropdown.Item> */}
           <Dropdown.Item href={getConfig().ACCOUNT_SETTINGS_URL}>
             {formatMessage(messages.account)}
           </Dropdown.Item>
-          {getConfig().ORDER_HISTORY_URL && (
+{/*           {getConfig().ORDER_HISTORY_URL && (
             <Dropdown.Item href={getConfig().ORDER_HISTORY_URL}>
               {formatMessage(messages.orderHistory)}
             </Dropdown.Item>
-          )}
+          )} */}
           <Dropdown.Divider />
           <Dropdown.Item href={getConfig().LOGOUT_URL}>
             {formatMessage(messages.signOut)}
