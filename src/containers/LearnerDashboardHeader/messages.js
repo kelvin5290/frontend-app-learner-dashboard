@@ -86,6 +86,11 @@ const messages = defineMessages({
     defaultMessage: 'New',
     description: 'The text announcing that an item in the user menu is New',
   },
+  language: {
+    id: 'header.menu.language',
+    defaultMessage: 'Language',
+    description: 'The Language',
+  },
 });
 
 export default messages;
