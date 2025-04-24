@@ -6,12 +6,14 @@ const initialState = {
   pageNumber: 1,
   courseData: {},
   entitlement: [],
+  courseMeta: {},
   emailConfirmation: {},
   enterpriseDashboard: {},
   platformSettings: {},
   suggestedCourses: [],
   selectSessionModal: {},
   filters: [],
+  lanFilter: "all",
 };
 
 export const cardId = (val) => `card-${val}`;
@@ -38,6 +40,10 @@ const app = createSlice({
         {},
       ),
     }),
+    loadCoursesMeta: (state, { payload }) => ({
+      ...state,
+      courseMeta: payload,
+    }),
     loadGlobalData: (state, { payload }) => ({
       ...state,
       emailConfirmation: payload.emailConfirmation,
@@ -54,6 +60,10 @@ const app = createSlice({
     setFilters: (state, { payload }) => ({
       ...state,
       filters: payload,
+    }),
+    setLanFilter: (state, { payload }) => ({
+      ...state,
+      lanFilter: payload,
     }),
     addFilter: (state, { payload }) => ({
       ...state,

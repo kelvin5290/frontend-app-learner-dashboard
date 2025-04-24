@@ -23,6 +23,29 @@
   text-align: right;
   align-self: center;
 }
+.chipFilter{
+  font-size: 1.10625rem!important;
+
+}
+.chip div{
+  font-size: 1.10625rem!important;
+  font-weight: 400!important;
+  padding: 3px;
+  
+}
+.chip div:hover{color: black!important;}
+.chip:hover {
+  .div {
+    color: black!important;
+  }
+  color: black!important;
+  background-color: #E1DDDB!important;
+}
+
+
+.course-pagination {
+  margin-left: -15px!important;
+}
 
 @include media-breakpoint-down(md) {
   .course-list-heading-container {

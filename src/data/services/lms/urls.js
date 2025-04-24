@@ -5,11 +5,11 @@ import { getConfig } from '@edx/frontend-platform';
 export const getEcommerceUrl = () => getConfig().ECOMMERCE_BASE_URL;
 
 const getBaseUrl = () => getConfig().LMS_BASE_URL;
-
+const getDiscoveryUrl = () => getConfig().DISCOVERY_API_BASE_URL;
 export const getApiUrl = () => (`${getConfig().LMS_BASE_URL}/api`);
 
 const getInitApiUrl = () => (`${getApiUrl()}/learner_home/init`);
-
+const getCourseMetaiUrl = () => (`${getDiscoveryUrl()}/api/v1/course_runs/`);
 const event = () => `${getBaseUrl()}/event`;
 const courseUnenroll = () => `${getBaseUrl()}/change_enrollment`;
 const updateEmailSettings = () => `${getApiUrl()}/change_email_settings`;
@@ -36,6 +36,7 @@ export default StrictDict({
   entitlementEnrollment,
   event,
   getInitApiUrl,
+  getCourseMetaiUrl,
   learningMfeUrl,
   programsUrl,
   updateEmailSettings,

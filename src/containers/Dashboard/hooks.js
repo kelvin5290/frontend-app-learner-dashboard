@@ -13,7 +13,9 @@ export const state = StrictDict({
 
 export const useInitializeDashboard = () => {
   const initialize = apiHooks.useInitializeApp();
+  const getCourse = apiHooks.useGetCourseMeta();
   React.useEffect(() => { initialize(); }, []); // eslint-disable-line
+  // React.useEffect(() => { getCourse(); }, []); 
 };
 
 export const useDashboardMessages = () => {

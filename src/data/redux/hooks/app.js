@@ -10,6 +10,7 @@ const actions = redux.actions.app;
 /** Simple Selectors **/
 export const usePageNumber = () => useSelector(selectors.pageNumber);
 export const useFilters = () => useSelector(selectors.filters);
+export const useLanFilter = () => useSelector(selectors.lanFilter);
 export const useEmailConfirmationData = () => useSelector(selectors.emailConfirmation);
 export const useEnterpriseDashboardData = () => useSelector(selectors.enterpriseDashboard);
 export const usePlatformSettingsData = () => useSelector(selectors.platformSettings);
@@ -18,6 +19,7 @@ export const useSocialShareSettings = () => useSelector(selectors.socialShareSet
 
 /** global-level meta-selectors **/
 export const useHasCourses = () => useSelector(selectors.hasCourses);
+export const useLanSelect = () => useSelector(selectors.lanSelect);
 export const useHasAvailableDashboards = () => useSelector(selectors.hasAvailableDashboards);
 export const useCurrentCourseList = (opts) => useSelector(
   state => selectors.currentList(state, opts),
@@ -82,7 +84,10 @@ export const useSetFilters = () => {
   const dispatch = useDispatch();
   return (value) => dispatch(actions.setFilters(value));
 };
-
+export const useSetLanFilter = () => {
+  const dispatch = useDispatch();
+  return (value) => dispatch(actions.setLanFilter(value));
+};
 export const useAddFilter = () => {
   const dispatch = useDispatch();
   return (value) => dispatch(actions.addFilter(value));
@@ -104,5 +109,11 @@ export const useLoadData = () => {
     dispatch(actions.setPageNumber(1));
     dispatch(actions.loadGlobalData(globalData));
     dispatch(actions.loadCourses({ courses }));
+  };
+};
+export const useLoadCourseMeta = () => {
+  const dispatch = useDispatch();
+  return (value) => {
+    dispatch(actions.loadCourseMeta(value));
   };
 };

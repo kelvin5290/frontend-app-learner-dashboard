@@ -28,11 +28,14 @@ export const ExpandedHeader = () => {
   if (isCollapsed) {
     return null;
   }
+  console.log(getLocale())
   const handleChange = async (e) => {
     e.preventDefault();
+    let language = e.target.value;
+    console.log("language",language)
     const requestConfig = { headers: { 'Content-Type': 'application/merge-patch+json' } };
     const { username, userId } = getAuthenticatedUser();
-    let processedParams = snakeCaseObject({ prefLang: e.target.value });
+    let processedParams = snakeCaseObject({ prefLang: language });
     processedParams = convertKeyNames(processedParams, {
       pref_lang: 'pref-lang',
     });
@@ -43,7 +46,7 @@ export const ExpandedHeader = () => {
       });
       
     const formData = new FormData();
-    formData.append('language', e.target.value);
+    formData.append('language', language);
     try {
       await getAuthenticatedHttpClient()
         .post(`${getConfig().LMS_BASE_URL}/i18n/setlang/`, formData, {
@@ -52,7 +55,7 @@ export const ExpandedHeader = () => {
        } catch (e) {
           console.log(e)
         }
-      publish(LOCALE_CHANGED, e.target.value);
+      publish(LOCALE_CHANGED, language);
       handleRtl();
       location.reload()
   };
@@ -89,7 +92,7 @@ export const ExpandedHeader = () => {
         <span className="flex-grow-1" />
         
           <Form.Group controlId="language" className='mt-3'>
-        <Form.Control id='language' onChange={(e)=>{handleChange(e)}}  name={formatMessage(messages.language)}  as="select" floatingLabel="Language">
+        <Form.Control value={getLocale()} id='language' onChange={(e)=>{handleChange(e)}}  name={formatMessage(messages.language)}  as="select" floatingLabel={formatMessage(messages.language)}>
        { siteLanguageList.map(({ code, name }) => (<option  value={code}>{name}</option>))}
           </Form.Control>
           </Form.Group>

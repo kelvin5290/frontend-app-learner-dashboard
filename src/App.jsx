@@ -9,25 +9,25 @@ import { ErrorPage, AppContext } from '@edx/frontend-platform/react';
 import Footer from '@edx/frontend-component-footer';
 import { Alert } from '@openedx/paragon';
 
-import { RequestKeys } from 'data/constants/requests';
-import store from 'data/store';
+import { getConfig } from '@edx/frontend-platform';
+import { RequestKeys } from './data/constants/requests';
+import store from './data/store';
 import {
   selectors,
   actions,
-} from 'data/redux';
-import { reduxHooks } from 'hooks';
-import Dashboard from 'containers/Dashboard';
-import ZendeskFab from 'components/ZendeskFab';
-import { ExperimentProvider } from 'ExperimentContext';
+} from './data/redux';
+import { reduxHooks } from './hooks';
+import Dashboard from './containers/Dashboard';
+// import ZendeskFab from './components/ZendeskFab';
+// import { ExperimentProvider } from './ExperimentContext';
 
-import track from 'tracking';
+import track from './tracking';
 
-import fakeData from 'data/services/lms/fakeData/courses';
+import fakeData from './data/services/lms/fakeData/courses';
 
-import AppWrapper from 'containers/WidgetContainers/AppWrapper';
-import LearnerDashboardHeader from 'containers/LearnerDashboardHeader';
+import AppWrapper from './containers/WidgetContainers/AppWrapper';
+import LearnerDashboardHeader from './containers/LearnerDashboardHeader';
 
-import { getConfig } from '@edx/frontend-platform';
 import messages from './messages';
 import './App.scss';
 
@@ -103,14 +103,14 @@ export const App = () => {
                   <ErrorPage message={formatMessage(messages.errorMessage, { supportEmail })} />
                 </Alert>
               ) : (
-                <ExperimentProvider>
+                // <ExperimentProvider>
                   <Dashboard />
-                </ExperimentProvider>
+                // </ExperimentProvider>
               )}
           </main>
         </AppWrapper>
-        <Footer logo={getConfig().LOGO_POWERED_BY_OPEN_EDX_URL_SVG} />
-        <ZendeskFab />
+        {/* <Footer logo={getConfig().LOGO_POWERED_BY_OPEN_EDX_URL_SVG} /> */}
+        {/* <ZendeskFab /> */}
       </div>
     </>
   );

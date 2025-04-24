@@ -53,7 +53,7 @@ export const CertificateBanner = ({ cardId }) => {
     );
   }
   if (!isPassing) {
-    if (isAudit) {
+    if (isAudit && minPassingGrade) {
       return (
         <Banner>
           {formatMessage(messages.passingGrade, { minPassingGrade })}

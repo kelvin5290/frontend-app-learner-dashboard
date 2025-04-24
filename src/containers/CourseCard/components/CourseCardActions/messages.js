@@ -19,7 +19,7 @@ const messages = defineMessages({
   viewCourse: {
     id: 'learner-dash.courseCard.actions.viewCourse',
     description: 'Course card view-course button text',
-    defaultMessage: 'View Course',
+    defaultMessage: 'Completed',
   },
   selectSession: {
     id: 'learner-dash.courseCard.actions.selectSession',

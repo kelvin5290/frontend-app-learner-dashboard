@@ -47,7 +47,7 @@ export const CourseFilterControls = ({
 
   return (
     <div id="course-filter-controls">
-      <Button
+      {/* <Button
         ref={setTarget}
         variant="outline-primary"
         iconBefore={Tune}
@@ -55,7 +55,7 @@ export const CourseFilterControls = ({
         disabled={!hasCourses}
       >
         {formatMessage(messages.refine)}
-      </Button>
+      </Button> */}
       <Form>
         {isMobile
           ? (

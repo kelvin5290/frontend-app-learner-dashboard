@@ -9,7 +9,7 @@ import useActionDisabledState from '../hooks';
 import ActionButton from './ActionButton';
 import messages from './messages';
 
-export const BeginCourseButton = ({ cardId }) => {
+export const BeginCourseButton = ({ cardId, buttonMessages }) => {
   const { formatMessage } = useIntl();
   const { homeUrl } = reduxHooks.useCardCourseRunData(cardId);
   const execEdTrackingParam = reduxHooks.useCardExecEdTrackingParam(cardId);
@@ -27,7 +27,7 @@ export const BeginCourseButton = ({ cardId }) => {
       href="#"
       onClick={handleClick}
     >
-      {formatMessage(messages.beginCourse)}
+      {formatMessage(buttonMessages)}
     </ActionButton>
   );
 };

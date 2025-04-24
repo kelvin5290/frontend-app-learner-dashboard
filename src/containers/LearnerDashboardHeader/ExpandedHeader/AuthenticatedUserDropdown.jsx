@@ -8,7 +8,8 @@ import { AvatarButton, Dropdown, Badge } from '@openedx/paragon';
 import { reduxHooks } from 'hooks';
 
 import messages from '../messages';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 export const AuthenticatedUserDropdown = () => {
   const { formatMessage } = useIntl();
   const { authenticatedUser } = React.useContext(AppContext);
@@ -16,16 +17,17 @@ export const AuthenticatedUserDropdown = () => {
 
   return (
     authenticatedUser && (
-      <Dropdown className="user-dropdown pr4">
-        <Dropdown.Toggle
+      <Dropdown className="user-dropdown ml-3">
+        <Dropdown.Toggle variant="outline-primary">
+        {/* <Dropdown.Toggle
           as={AvatarButton}
           src={authenticatedUser.profileImage}
           id="user"
-          variant="light"
-          className="p-4"
-        >
-          <span data-hj-suppress className="d-md-inline">
-            {authenticatedUser.username}
+          variant="outline-primary"
+        > */}
+           <FontAwesomeIcon icon={faUserCircle} className="d-md-none" size="lg" />
+           <span data-hj-suppress className="d-none d-md-inline">
+            {authenticatedUser.email}
           </span>
         </Dropdown.Toggle>
         <Dropdown.Menu className="dropdown-menu-right">

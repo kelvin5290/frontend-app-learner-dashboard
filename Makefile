@@ -44,13 +44,13 @@ pull_translations:
 	rm -rf src/i18n/messages
 	mkdir src/i18n/messages
 	cd src/i18n/messages \
-      && atlas pull $(ATLAS_OPTIONS) \
-               translations/frontend-platform/src/i18n/messages:frontend-platform \
-               translations/paragon/src/i18n/messages:paragon \
-               translations/frontend-component-footer/src/i18n/messages:frontend-component-footer \
-               translations/frontend-app-learner-dashboard/src/i18n/messages:frontend-app-learner-dashboard
+       && atlas pull $(ATLAS_OPTIONS) \
+                translations/frontend-platform/src/i18n/messages:frontend-platform \
+                translations/paragon/src/i18n/messages:paragon \
+                translations/frontend-component-footer/src/i18n/messages:frontend-component-footer \
+                translations/frontend-app-learner-dashboard/src/i18n/messages:frontend-app-learner-dashboard
 
-	$(intl_imports) frontend-platform paragon frontend-component-footer frontend-app-learner-dashboard
+	 $(intl_imports) frontend-platform paragon frontend-component-footer frontend-app-learner-dashboard
 
 # This target is used by CI.
 validate-no-uncommitted-package-lock-changes:

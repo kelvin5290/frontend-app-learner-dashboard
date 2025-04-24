@@ -10,7 +10,7 @@ import SelectSessionButton from './SelectSessionButton';
 import BeginCourseButton from './BeginCourseButton';
 import ResumeButton from './ResumeButton';
 import ViewCourseButton from './ViewCourseButton';
-
+import messages from './messages';
 export const CourseCardActions = ({ cardId }) => {
   const { isEntitlement, isFulfilled } = reduxHooks.useCardEntitlementData(cardId);
   const {
@@ -19,7 +19,7 @@ export const CourseCardActions = ({ cardId }) => {
     isExecEd2UCourse,
   } = reduxHooks.useCardEnrollmentData(cardId);
   const { isArchived } = reduxHooks.useCardCourseRunData(cardId);
-
+  const { isPassing } = reduxHooks.useCardGradeData(cardId);
   return (
     <ActionRow data-test-id="CourseCardActions">
       {/* {!(isEntitlement || isVerified || isExecEd2UCourse) && <UpgradeButton cardId={cardId} />} */}
@@ -31,8 +31,8 @@ export const CourseCardActions = ({ cardId }) => {
         <ViewCourseButton cardId={cardId} />
       )}
       {!(isArchived || isEntitlement) && (hasStarted
-        ? <ResumeButton cardId={cardId} />
-        : <BeginCourseButton cardId={cardId} />
+        ? (isPassing? <BeginCourseButton cardId={cardId} buttonMessages={messages.viewCourse} />:<ResumeButton cardId={cardId} />)
+        : <BeginCourseButton cardId={cardId} buttonMessages={messages.beginCourse} />
       )}
     </ActionRow>
   );

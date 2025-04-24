@@ -89,7 +89,17 @@ const messages = defineMessages({
   language: {
     id: 'header.menu.language',
     defaultMessage: 'Language',
+    description: 'The aria label for the account menu nav',
+  },
+  headerNav: {
+    id: 'header.label.secondary.nav',
+    defaultMessage: 'Language',
     description: 'The Language',
+  },
+  headerMenu: {
+    id: 'header.label.account.menu',
+    defaultMessage: 'Account Menu',
+    description: 'The aria label for the account menu trigger',
   },
 });
 

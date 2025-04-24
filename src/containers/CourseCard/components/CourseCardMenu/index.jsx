@@ -39,7 +39,7 @@ export const CourseCardMenu = ({ cardId }) => {
 
   return (
     <>
-      <Dropdown onToggle={handleToggleDropdown}>
+      {/* <Dropdown onToggle={handleToggleDropdown}>
         <Dropdown.Toggle
           id={`course-actions-dropdown-${cardId}`}
           as={IconButton}
@@ -49,7 +49,7 @@ export const CourseCardMenu = ({ cardId }) => {
           alt={formatMessage(messages.dropdownAlt)}
         />
         <Dropdown.Menu>
-          {shouldShowUnenrollItem && (
+          {false && (
             <Dropdown.Item
               disabled={isMasquerading}
               onClick={unenrollModal.show}
@@ -60,7 +60,7 @@ export const CourseCardMenu = ({ cardId }) => {
           )}
           <SocialShareMenu cardId={cardId} emailSettings={emailSettings} />
         </Dropdown.Menu>
-      </Dropdown>
+      </Dropdown> */}
       <UnenrollConfirmModal
         show={unenrollModal.isVisible}
         closeModal={unenrollModal.hide}

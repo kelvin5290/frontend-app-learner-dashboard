@@ -30,7 +30,13 @@ export const useInitializeApp = () => {
     onSuccess: ({ data }) => loadData(data),
   });
 };
-
+export const useGetCourseMeta = () => {
+  const loadData = reduxHooks.useLoadCourseMeta();
+  return module.useNetworkRequest(api.getCourseMeta, {
+    requestKey: RequestKeys.getCourseMeta,
+    onSuccess: ({ data }) => loadData(data),
+  });
+};
 export const useNewEntitlementEnrollment = (cardId) => {
   const { uuid } = reduxHooks.useCardEntitlementData(cardId);
   const onSuccess = module.useInitializeApp();

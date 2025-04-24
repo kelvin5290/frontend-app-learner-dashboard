@@ -37,6 +37,7 @@ export const useUnenrollData = ({ closeModal, cardId }) => {
   };
   const closeAndRefresh = () => {
     refreshList();
+    apiHooks.useGetCourseMeta();
     close();
   };
 

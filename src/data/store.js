@@ -1,6 +1,6 @@
 import * as redux from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
+// import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { createLogger } from 'redux-logger';
 
 import apiTestUtils from 'data/services/lms/fakeData/testUtils';
@@ -14,7 +14,7 @@ export const createStore = () => {
 
   const store = redux.createStore(
     reducer,
-    composeWithDevTools(redux.applyMiddleware(...middleware)),
+    redux.applyMiddleware(...middleware),
   );
 
   /**

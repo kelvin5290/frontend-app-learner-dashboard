@@ -9,6 +9,9 @@ export const numCourses = createSelector(
   [simpleSelectors.courseData],
   (courseData) => Object.keys(courseData).length,
 );
+export const lanSelect = createSelector(
+  [simpleSelectors.courseData],
+  (courseData) => [...new Set(Object.values(courseData).map((course) => course.course.courseNumber.slice(-1)))]);
 export const hasCourses = createSelector([module.numCourses], (num) => num > 0);
 export const hasAvailableDashboards = createSelector(
   [simpleSelectors.enterpriseDashboard],
@@ -22,6 +25,7 @@ export const showSelectSessionModal = createSelector(
 export default StrictDict({
   numCourses,
   hasCourses,
+  lanSelect,
   hasAvailableDashboards,
   showSelectSessionModal,
 });
