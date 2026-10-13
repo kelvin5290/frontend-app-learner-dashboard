@@ -9,7 +9,7 @@ import useActionDisabledState from '../hooks';
 import ActionButton from './ActionButton';
 import messages from './messages';
 
-export const ViewCourseButton = ({ cardId }) => {
+export const ViewCourseButton = ({ cardId, forceDisabled = false, text = null }) => {
   const { formatMessage } = useIntl();
   const { homeUrl } = reduxHooks.useCardCourseRunData(cardId);
   const { disableViewCourse } = useActionDisabledState(cardId);
@@ -21,16 +21,24 @@ export const ViewCourseButton = ({ cardId }) => {
   );
   return (
     <ActionButton
-      disabled={disableViewCourse}
+      disabled={forceDisabled || disableViewCourse}
       as="a"
       href="#"
       onClick={handleClick}
     >
-      {formatMessage(messages.viewCourse)}
+      {text ? formatMessage(text) : formatMessage(messages.viewCourse)}
     </ActionButton>
   );
 };
 ViewCourseButton.propTypes = {
   cardId: PropTypes.string.isRequired,
+  forceDisabled: PropTypes.bool,
+  text: PropTypes.string,
 };
+
+ViewCourseButton.defaultProps = {
+  forceDisabled: false,
+  text: null,
+};
+
 export default ViewCourseButton;

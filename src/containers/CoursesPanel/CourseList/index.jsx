@@ -18,26 +18,26 @@ export const CourseList = ({
   const isCollapsed = useIsCollapsed();
   const pageNumber = reduxHooks.usePageNumber();
   const { formatMessage } = useIntl();
-  const lanMap = { C: "zh", P: "ch", E: "en", T: "th" ,Y: "ms"};
-  const flanMap = { "zh-hk":"C","zh-cn":"P","en": "E","th":"T","ms-my":"Y" };
+  const lanMap = { C: "zh", P: "ch", E: "en", T: "th" ,Y: "ms", M:'tw', V:'vi'};
+  const flanMap = { "zh-hk":"C","zh-cn":"P","en": "E","th":"T","ms-my":"Y","vi":"V" };
+  const order = ['E', 'C', 'P', 'T', 'Y','M','V'];
   const lanSelect = reduxHooks.useLanSelect().sort((a, b) => {
-    if (a === 'E' || b === 'E') {
-      return -1;
-    }
-    const messageA = messages[lanMap[a]]
-      ? messages[lanMap[a]].defaultMessage
-      : "";
-    const messageB = messages[lanMap[b]]
-      ? messages[lanMap[b]].defaultMessage
-      : "";
-    return messageA.localeCompare(messageB);
+    return order.indexOf(a) - order.indexOf(b);
   });
   const filter = reduxHooks.useLanFilter();
   const setFilter = reduxHooks.useSetLanFilter();
   React.useEffect(() => {
    let lan =  getLocale()
   //  console.log("lan", lan)
-   setFilter(flanMap[lan])
+  if (lanSelect.includes(flanMap[lan])) {
+    setFilter(flanMap[lan])
+  }
+  else if (lanSelect.length > 0) {
+    setFilter(lanSelect[0])
+  }
+  else {
+    setFilter("en")
+  }
   }, []);
   return (
     <>
@@ -53,7 +53,7 @@ export const CourseList = ({
             <span className="chipFilter">
               {formatMessage(messages.courseLanguage)}
             </span>
-            <Chip
+            {/* <Chip
             className="chip"
               isSelected={filter === "all"}
               onClick={() => {
@@ -62,7 +62,7 @@ export const CourseList = ({
               }}
             >
               {formatMessage(messages.all)}
-            </Chip>
+            </Chip> */}
             {lanSelect.map((lan) => {
               const message = messages[lanMap[lan]];
               return message ? (
@@ -92,7 +92,7 @@ export const CourseList = ({
               as="select"
               floatingLabel={formatMessage(messages.courseLanguage)}
             >
-              <option value="all">{formatMessage(messages.all)}</option>
+              {/* <option value="all">{formatMessage(messages.all)}</option> */}
               {lanSelect.map((lan) => {
                 const message = messages[lanMap[lan]];
                 return message ? (

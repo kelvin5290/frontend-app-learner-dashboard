@@ -26,6 +26,11 @@ const messages = defineMessages({
     description: 'Course card select-session button text',
     defaultMessage: 'Select Session',
   },
+  dueCourse: {
+    id: 'learner-dash.courseCard.actions.dueCourse',
+    description: 'Course card due-course button text',
+    defaultMessage: 'Expired',
+  },
 });
 
 export default messages;

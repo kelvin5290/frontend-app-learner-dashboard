@@ -38,8 +38,18 @@ const messages = defineMessages({
   },
   ms: {
     id: 'dashboard.ms',
-    defaultMessage: 'Malay',
-    description: 'Malay',
+    defaultMessage: 'Bahasa Melayu',
+    description: 'Bahasa Melayu',
+  },
+  tw: {
+    id: 'dashboard.tw',
+    defaultMessage: 'Mandarin',
+    description: 'Mandarin',
+  },
+    vi: {
+    id: 'dashboard.vi',
+    defaultMessage: 'Tiếng Việt',
+    description: 'Tiếng Việt',
   },
 });
 

@@ -1,4 +1,4 @@
-const siteLanguageList = [
+const siteLanguageList =  [
   {
     code: 'en',
     name: 'English',
@@ -21,7 +21,12 @@ const siteLanguageList = [
   },
   {
     code: 'ms-my',
-    name: 'Melayu',
+    name: 'Bahasa Melayu',
+    released: true,
+  },
+  {
+    code: 'vi',
+    name: 'Tiếng Việt',
     released: true,
   },
 ];
